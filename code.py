@@ -13,7 +13,7 @@ iris = load_iris()
 iris_data = iris.data
 iris_label = iris.target
 
-dt_clf = DecisionTreeClassifier( )
+dt_clf = DecisionTreeClassifier()
 
 X_train, X_test, y_train, y_test= train_test_split(iris.data, iris.target, test_size=0.2, random_state=2025)
 
@@ -91,11 +91,11 @@ skfold = StratifiedKFold(n_splits=5)
 n_iter=0
 cv_accuracy=[]
 
-for train_index, test_index  in skfold.split(features, label):
+for train_index, test_index in skfold.split(features, label):
     X_train, X_test = features[train_index], features[test_index]
     y_train, y_test = label[train_index], label[test_index]
     
-    dt_clf.fit(X_train , y_train)    
+    dt_clf.fit(X_train, y_train)    
     pred = dt_clf.predict(X_test)
 
     n_iter += 1
